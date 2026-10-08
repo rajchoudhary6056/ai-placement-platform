@@ -1,0 +1,1207 @@
+/* =====================================================
+   DSA COMMON
+===================================================== */
+
+.dsa-page,
+.dsa-question-page {
+  min-height: 100vh;
+  background: #f5f7fb;
+  box-sizing: border-box;
+}
+
+.dsa-page {
+  padding: 32px 24px 60px;
+}
+
+.dsa-container,
+.dsa-question-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* =====================================================
+   DSA PRACTICE - BACK
+===================================================== */
+
+.dsa-back-button {
+  margin-bottom: 25px;
+  border: 1px solid #d0d5dd;
+  background: #ffffff;
+  color: #344054;
+  padding: 10px 16px;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.dsa-back-button:hover {
+  color: #4f46e5;
+  border-color: #4f46e5;
+}
+
+/* =====================================================
+   PRACTICE HEADER
+===================================================== */
+
+.dsa-header {
+  margin-bottom: 22px;
+}
+
+.dsa-header .page-kicker {
+  display: block;
+  margin-bottom: 8px;
+  color: #4f46e5;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.dsa-header h1 {
+  margin: 0;
+  color: #101828;
+  font-size: 40px;
+  line-height: 1.15;
+  font-weight: 800;
+}
+
+.dsa-header p {
+  margin: 12px 0 0;
+  color: #667085;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+.dsa-progress-card {
+  width: 100%;
+  min-height: 130px;
+  box-sizing: border-box;
+  margin-bottom: 25px;
+  padding: 25px 30px;
+
+  display: flex;
+  align-items: center;
+  gap: 30px;
+
+  background: #ffffff;
+  border: 1px solid #e4e7ec;
+  border-radius: 18px;
+
+  box-shadow: 0 8px 25px rgba(16, 24, 40, 0.05);
+}
+
+.dsa-progress-circle {
+  width: 92px;
+  height: 92px;
+  min-width: 92px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  border: 8px solid #4f46e5;
+  background: #eef2ff;
+
+  color: #3730a3;
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.dsa-progress-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.dsa-progress-info span {
+  color: #344054;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.dsa-progress-info strong {
+  color: #101828;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.dsa-progress-info small {
+  width: 100%;
+  color: #667085;
+  font-size: 13px;
+}
+
+/* =====================================================
+   FILTERS
+===================================================== */
+
+.dsa-filter-card {
+  width: 100%;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: flex-end;
+  gap: 22px;
+
+  padding: 25px 22px;
+  margin-bottom: 28px;
+
+  background: #ffffff;
+  border: 1px solid #e4e7ec;
+  border-radius: 18px;
+
+  box-shadow: 0 8px 25px rgba(16, 24, 40, 0.04);
+}
+
+.dsa-filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dsa-filter-group label {
+  color: #344054;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.dsa-filter-group select {
+  width: 200px;
+  height: 48px;
+  padding: 0 14px;
+
+  border: 1px solid #d0d5dd;
+  border-radius: 10px;
+
+  background: #ffffff;
+  color: #344054;
+
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+}
+
+.dsa-filter-group select:focus {
+  border-color: #4f46e5;
+}
+
+.dsa-question-count {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 48px;
+  margin-left: auto;
+
+  color: #667085;
+  font-size: 15px;
+}
+
+.dsa-question-count strong {
+  color: #101828;
+  font-size: 20px;
+}
+
+/* =====================================================
+   QUESTION GRID
+===================================================== */
+
+.dsa-question-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.dsa-question-card {
+  min-width: 0;
+  padding: 24px;
+
+  background: #ffffff;
+  border: 1px solid #e4e7ec;
+  border-radius: 18px;
+
+  box-shadow: 0 7px 22px rgba(16, 24, 40, 0.04);
+  transition: 0.2s ease;
+}
+
+.dsa-question-card:hover {
+  transform: translateY(-3px);
+  border-color: #c7d2fe;
+  box-shadow: 0 14px 30px rgba(16, 24, 40, 0.09);
+}
+
+.dsa-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.dsa-question-number {
+  color: #667085;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.dsa-difficulty {
+  padding: 5px 11px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.dsa-easy {
+  background: #ecfdf3;
+  color: #027a48;
+}
+
+.dsa-medium {
+  background: #fff7ed;
+  color: #c2410c;
+}
+
+.dsa-question-card h2 {
+  margin: 0 0 8px;
+  color: #101828;
+  font-size: 22px;
+}
+
+.dsa-topic {
+  margin-bottom: 8px;
+  color: #4f46e5;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.dsa-question-card > p {
+  min-height: 42px;
+  margin: 0 0 20px;
+  color: #667085;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.dsa-card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid #eef0f4;
+}
+
+.dsa-solved {
+  color: #039855;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.dsa-not-solved {
+  color: #667085;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.solve-question-button {
+  border: none;
+  padding: 10px 17px;
+  border-radius: 9px;
+  background: #4f46e5;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.solve-question-button:hover {
+  background: #3730a3;
+}
+
+/* =====================================================
+   QUESTION / SOLVE PAGE
+===================================================== */
+
+.dsa-question-page {
+  padding: 32px 24px 60px;
+}
+
+.dsa-question-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.dsa-question-header-card {
+  background: #ffffff;
+  border: 1px solid #e4e7ec;
+  border-radius: 18px;
+  padding: 28px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 25px rgba(16, 24, 40, 0.05);
+}
+
+.dsa-question-header-card h1 {
+  margin: 0 0 15px;
+  color: #101828;
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.dsa-question-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* =====================================================
+   QUESTION INFORMATION
+===================================================== */
+
+.dsa-info-card,
+.dsa-description-card,
+.dsa-explanation-card,
+.dsa-constraints-card,
+.dsa-example-card {
+  background: #ffffff;
+  border: 1px solid #e4e7ec;
+  border-radius: 16px;
+  padding: 22px;
+  margin-bottom: 18px;
+}
+
+.dsa-info-card h3,
+.dsa-description-card h3,
+.dsa-explanation-card h3,
+.dsa-constraints-card h3,
+.dsa-example-card h3 {
+  margin: 0 0 12px;
+  color: #101828;
+  font-size: 18px;
+}
+
+.dsa-info-card p,
+.dsa-description-card p,
+.dsa-explanation-card p,
+.dsa-constraints-card p {
+  margin: 0;
+  color: #475467;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* =====================================================
+   INPUT / OUTPUT
+===================================================== */
+
+.dsa-input-output {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.dsa-input-box,
+.dsa-output-box {
+  background: #f8fafc;
+  border: 1px solid #e4e7ec;
+  border-radius: 12px;
+  padding: 18px;
+}
+
+.dsa-input-box h4,
+.dsa-output-box h4 {
+  margin: 0 0 10px;
+  color: #344054;
+  font-size: 14px;
+}
+
+.dsa-input-box pre,
+.dsa-output-box pre {
+  margin: 0;
+  white-space: pre-wrap;
+  color: #344054;
+  font-family: Consolas, Monaco, monospace;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* =====================================================
+   CODE EDITOR
+===================================================== */
+
+.dsa-code-section {
+  margin-top: 24px;
+}
+
+.dsa-code-section h2 {
+  margin: 0 0 12px;
+  color: #101828;
+  font-size: 22px;
+}
+
+.dsa-code-card {
+  overflow: hidden;
+  background: #111827;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(16, 24, 40, 0.15);
+}
+
+.dsa-code-header {
+  height: 48px;
+  padding: 0 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: #1f2937;
+  color: #ffffff;
+}
+
+.dsa-code-header span {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.dsa-language {
+  color: #d1d5db;
+  font-size: 12px;
+}
+
+.dsa-code-editor {
+  width: 100%;
+  min-height: 420px;
+
+  box-sizing: border-box;
+  display: block;
+
+  padding: 20px;
+
+  border: none;
+  outline: none;
+  resize: vertical;
+
+  background: #111827;
+  color: #e5e7eb;
+
+  font-family: Consolas, Monaco, "Courier New", monospace;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.dsa-code-editor:focus {
+  outline: none;
+}
+
+/* =====================================================
+   CODE ACTIONS
+===================================================== */
+
+.dsa-code-actions {
+  display: flex;
+  gap: 12px;
+  padding: 15px 18px;
+  background: #1f2937;
+}
+
+.dsa-run-button,
+.dsa-submit-button {
+  border: none;
+  padding: 11px 20px;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.dsa-run-button {
+  background: #ffffff;
+  color: #344054;
+}
+
+.dsa-run-button:hover {
+  background: #f2f4f7;
+}
+
+.dsa-submit-button {
+  background: #4f46e5;
+  color: #ffffff;
+}
+
+.dsa-submit-button:hover {
+  background: #3730a3;
+}
+
+/* =====================================================
+   COMPILE ERROR
+===================================================== */
+
+.dsa-compile-error {
+  margin-top: 20px;
+  padding: 18px;
+
+  background: #fef3f2;
+  border: 1px solid #fecdca;
+  border-radius: 12px;
+
+  color: #b42318;
+}
+
+.dsa-compile-error h3 {
+  margin: 0 0 10px;
+}
+
+.dsa-compile-error pre {
+  margin: 0;
+  white-space: pre-wrap;
+  font-family: Consolas, monospace;
+  font-size: 13px;
+}
+
+/* =====================================================
+   TEST RESULTS
+===================================================== */
+
+.dsa-test-results {
+  margin-top: 22px;
+  padding: 22px;
+
+  background: #ffffff;
+  border: 1px solid #e4e7ec;
+  border-radius: 16px;
+}
+
+.dsa-test-results h2 {
+  margin: 0 0 18px;
+  color: #101828;
+}
+
+.dsa-test-case {
+  margin-bottom: 12px;
+  padding: 16px;
+
+  border: 1px solid #e4e7ec;
+  border-radius: 12px;
+}
+
+.dsa-test-case.passed {
+  background: #f6fef9;
+  border-color: #abefc6;
+}
+
+.dsa-test-case.failed {
+  background: #fffbfa;
+  border-color: #fecdca;
+}
+
+.dsa-test-case-title {
+  margin-bottom: 10px;
+  color: #344054;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.dsa-test-output {
+  padding: 10px;
+  background: #f8fafc;
+  border-radius: 8px;
+
+  white-space: pre-wrap;
+  font-family: Consolas, monospace;
+  font-size: 13px;
+}
+
+/* =====================================================
+   AI EVALUATION
+===================================================== */
+
+.dsa-evaluation-card {
+  margin-top: 22px;
+  padding: 25px;
+
+  background: #ffffff;
+  border: 1px solid #e4e7ec;
+  border-radius: 18px;
+
+  box-shadow: 0 8px 25px rgba(16, 24, 40, 0.05);
+}
+
+.dsa-evaluation-card h2 {
+  margin: 0 0 20px;
+  color: #101828;
+}
+
+.dsa-evaluation-score {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.dsa-score {
+  font-size: 42px;
+  font-weight: 900;
+  color: #4f46e5;
+}
+
+.dsa-verdict {
+  padding: 7px 12px;
+  border-radius: 20px;
+  background: #ecfdf3;
+  color: #027a48;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.dsa-feedback {
+  margin-top: 20px;
+  padding: 17px;
+
+  background: #f8fafc;
+  border-radius: 12px;
+
+  color: #475467;
+  line-height: 1.7;
+}
+
+.dsa-evaluation-list {
+  margin: 10px 0 0;
+  padding-left: 20px;
+  color: #475467;
+  line-height: 1.8;
+}
+
+/* =====================================================
+   COMPLEXITY
+===================================================== */
+
+.dsa-complexity {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 18px;
+}
+
+.dsa-complexity-card {
+  padding: 15px;
+  background: #f8fafc;
+  border-radius: 10px;
+}
+
+.dsa-complexity-card span {
+  display: block;
+  margin-bottom: 5px;
+  color: #667085;
+  font-size: 12px;
+}
+
+.dsa-complexity-card strong {
+  color: #101828;
+  font-size: 15px;
+}
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.dsa-bottom-navigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.dsa-next-button,
+.dsa-secondary-button {
+  border: none;
+  padding: 12px 20px;
+  border-radius: 9px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.dsa-next-button {
+  background: #4f46e5;
+  color: #ffffff;
+}
+
+.dsa-next-button:hover {
+  background: #3730a3;
+}
+
+.dsa-secondary-button {
+  background: #ffffff;
+  color: #344054;
+  border: 1px solid #d0d5dd;
+}
+
+/* =====================================================
+   SOLVED BADGE
+===================================================== */
+
+.dsa-solved-badge {
+  padding: 7px 12px;
+  border-radius: 20px;
+  background: #ecfdf3;
+  color: #027a48;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+/* =====================================================
+   LOADING / EMPTY
+===================================================== */
+
+.dsa-loading,
+.dsa-empty {
+  padding: 55px 20px;
+  text-align: center;
+
+  background: #ffffff;
+  border: 1px solid #e4e7ec;
+  border-radius: 18px;
+}
+
+.dsa-loading p,
+.dsa-empty p {
+  color: #667085;
+}
+
+.dsa-empty-icon {
+  font-size: 42px;
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 850px) {
+  .dsa-question-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dsa-input-output,
+  .dsa-complexity {
+    grid-template-columns: 1fr;
+  }
+
+  .dsa-filter-card {
+    flex-wrap: wrap;
+    align-items: stretch;
+  }
+
+  .dsa-question-count {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .dsa-page,
+  .dsa-question-page {
+    padding: 24px 14px 45px;
+  }
+
+  .dsa-header h1 {
+    font-size: 32px;
+  }
+
+  .dsa-progress-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 22px;
+  }
+
+  .dsa-progress-info {
+    justify-content: center;
+  }
+
+  .dsa-filter-card {
+    flex-direction: column;
+  }
+
+  .dsa-filter-group select {
+    width: 100%;
+  }
+
+  .dsa-question-card {
+    padding: 20px;
+  }
+
+  .dsa-card-bottom {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .solve-question-button {
+    width: 100%;
+  }
+
+  .dsa-question-header-card {
+    padding: 20px;
+  }
+
+  .dsa-question-header-card h1 {
+    font-size: 26px;
+  }
+
+  .dsa-code-editor {
+    min-height: 350px;
+    font-size: 13px;
+  }
+
+  .dsa-code-actions {
+    flex-direction: column;
+  }
+
+  .dsa-run-button,
+  .dsa-submit-button {
+    width: 100%;
+  }
+
+  .dsa-bottom-navigation {
+    flex-direction: column;
+  }
+}
+/* =====================================================
+   DSA PROGRESS PAGE
+===================================================== */
+
+.dsa-progress-page {
+  min-height: 100vh;
+  padding: 32px 24px 60px;
+  background: #f5f7fb;
+}
+
+.dsa-progress-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.dsa-progress-header {
+  margin: 20px 0 25px;
+}
+
+.dsa-progress-header > span {
+  color: #4f46e5;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.dsa-progress-header h1 {
+  margin: 8px 0;
+  color: #101828;
+  font-size: 40px;
+  font-weight: 800;
+}
+
+.dsa-progress-header p {
+  margin: 0;
+  color: #667085;
+  font-size: 16px;
+}
+
+.dsa-progress-overview {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+
+  padding: 30px;
+  margin-bottom: 22px;
+
+  background: #ffffff;
+  border: 1px solid #e4e7ec;
+  border-radius: 18px;
+
+  box-shadow: 0 8px 25px rgba(16, 24, 40, 0.05);
+}
+
+.dsa-progress-big-circle {
+  width: 120px;
+  height: 120px;
+  min-width: 120px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 9px solid #4f46e5;
+  border-radius: 50%;
+
+  background: #eef2ff;
+
+  color: #3730a3;
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.dsa-progress-overview-text h2 {
+  margin: 0 0 8px;
+  color: #101828;
+  font-size: 24px;
+}
+
+.dsa-progress-overview-text p {
+  margin: 0;
+  color: #667085;
+  font-size: 15px;
+}
+
+.dsa-progress-overview-text strong {
+  color: #101828;
+}
+
+/* STATS */
+
+.dsa-progress-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.dsa-stat-card {
+  padding: 22px;
+
+  background: #ffffff;
+  border: 1px solid #e4e7ec;
+  border-radius: 15px;
+
+  box-shadow: 0 6px 20px rgba(16, 24, 40, 0.04);
+}
+
+.dsa-stat-card span {
+  display: block;
+  margin-bottom: 8px;
+
+  color: #667085;
+  font-size: 13px;
+}
+
+.dsa-stat-card strong {
+  color: #101828;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+/* HISTORY */
+
+.dsa-history-card {
+  padding: 25px;
+
+  background: #ffffff;
+  border: 1px solid #e4e7ec;
+  border-radius: 18px;
+
+  box-shadow: 0 8px 25px rgba(16, 24, 40, 0.05);
+}
+
+.dsa-history-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eef0f4;
+}
+
+.dsa-history-header h2 {
+  margin: 0 0 5px;
+  color: #101828;
+  font-size: 22px;
+}
+
+.dsa-history-header p {
+  margin: 0;
+  color: #667085;
+  font-size: 14px;
+}
+
+.dsa-practice-button {
+  border: none;
+  padding: 11px 18px;
+
+  border-radius: 9px;
+
+  background: #4f46e5;
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+.dsa-practice-button:hover {
+  background: #3730a3;
+}
+
+/* HISTORY ITEM */
+
+.dsa-history-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.dsa-history-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 18px 5px;
+
+  border-bottom: 1px solid #eef0f4;
+}
+
+.dsa-history-item:last-child {
+  border-bottom: none;
+}
+
+.dsa-history-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.dsa-history-check {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #ecfdf3;
+  color: #039855;
+
+  font-weight: 900;
+}
+
+.dsa-history-left h3 {
+  margin: 0 0 4px;
+  color: #101828;
+  font-size: 15px;
+}
+
+.dsa-history-left span {
+  color: #667085;
+  font-size: 12px;
+}
+
+.dsa-history-score {
+  text-align: right;
+}
+
+.dsa-history-score strong {
+  display: block;
+  color: #4f46e5;
+  font-size: 17px;
+}
+
+.dsa-history-score small {
+  color: #039855;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* EMPTY */
+
+.dsa-no-history {
+  padding: 45px 20px;
+  text-align: center;
+}
+
+.dsa-no-history > div {
+  font-size: 45px;
+  margin-bottom: 10px;
+}
+
+.dsa-no-history h3 {
+  margin: 0 0 8px;
+  color: #101828;
+}
+
+.dsa-no-history p {
+  margin: 0 auto 20px;
+  max-width: 450px;
+  color: #667085;
+}
+
+/* LOADING / ERROR */
+
+.dsa-progress-loading {
+  min-height: 70vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.dsa-progress-error {
+  padding: 18px;
+
+  background: #fef3f2;
+  border: 1px solid #fecdca;
+  border-radius: 12px;
+
+  color: #b42318;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+  .dsa-progress-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .dsa-progress-page {
+    padding: 24px 14px 45px;
+  }
+
+  .dsa-progress-header h1 {
+    font-size: 32px;
+  }
+
+  .dsa-progress-overview {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .dsa-progress-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .dsa-history-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .dsa-practice-button {
+    width: 100%;
+  }
+
+  .dsa-history-item {
+    gap: 12px;
+  }
+
+  .dsa-history-score strong {
+    font-size: 15px;
+  }
+}
