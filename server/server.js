@@ -1,6 +1,5 @@
 ```js
-const dotenv = require("dotenv");
-dotenv.config();
+require("dotenv").config();
 
 const express = require("express");
 const cors = require("cors");
@@ -21,10 +20,6 @@ const skillGapRoutes = require("./routes/skillGapRoutes");
 
 const app = express();
 
-connectDB();
-
-/* CORS CONFIGURATION */
-
 const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:4173",
@@ -34,16 +29,16 @@ const allowedOrigins = [
 
 app.use(
   cors({
-    origin: function (origin, callback) {
+    origin: (origin, callback) => {
       if (!origin || allowedOrigins.includes(origin)) {
         return callback(null, true);
       }
 
       console.error("CORS blocked origin:", origin);
-      return callback(null, false);
+      return callback(new Error("Origin not allowed by CORS"));
     },
     credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
@@ -52,14 +47,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
+connectDB();
+
 app.get("/", (req, res) => {
   res.json({
     success: true,
     message: "AI Placement Platform API is running",
   });
 });
-
-/* ROUTES */
 
 app.use("/api/auth", authRoutes);
 app.use("/api/profile", profileRoutes);
@@ -72,8 +67,6 @@ app.use("/api/admin", adminRoutes);
 app.use("/api/study-plan", studyPlanRoutes);
 app.use("/api/skill-gap", skillGapRoutes);
 
-/* 404 HANDLER */
-
 app.use((req, res) => {
   res.status(404).json({
     success: false,
@@ -81,22 +74,18 @@ app.use((req, res) => {
   });
 });
 
-/* ERROR HANDLER */
-
 app.use((err, req, res, next) => {
   console.error("Server Error:", err);
 
   res.status(500).json({
     success: false,
-    message: err.message || "Something went wrong",
+    message: "Internal server error",
   });
 });
-
-/* START SERVER */
 
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log("Server running on port " + PORT);
 });
 ```
