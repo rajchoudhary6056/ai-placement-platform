@@ -1,57 +1,27 @@
 import axios from "axios";
 
-
 const api = axios.create({
-  baseURL:
-    "http://localhost:5000/api",
-
+  baseURL: "https://ai-placement-platform-api.onrender.com/api",
   headers: {
-    "Content-Type":
-      "application/json",
+    "Content-Type": "application/json",
   },
 });
 
-
 api.interceptors.request.use(
   (config) => {
-
-    const token =
-      localStorage.getItem(
-        "token"
-      );
-
+    const token = localStorage.getItem("token");
 
     if (token) {
-
-      config.headers.Authorization =
-        `Bearer ${token}`;
-
+      config.headers.Authorization = `Bearer ${token}`;
     }
 
-
-    if (
-      config.data instanceof FormData
-    ) {
-
-      delete config.headers[
-        "Content-Type"
-      ];
-
+    if (config.data instanceof FormData) {
+      delete config.headers["Content-Type"];
     }
-
 
     return config;
-
   },
-
-  (error) => {
-
-    return Promise.reject(
-      error
-    );
-
-  }
+  (error) => Promise.reject(error)
 );
-
 
 export default api;
