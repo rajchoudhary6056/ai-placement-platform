@@ -25,6 +25,7 @@ const allowedOrigins = [
   "http://localhost:4173",
   "https://ai-placement-platform-nine.vercel.app",
   "https://ai-placement-platform-4ecypb4hr-raj466.vercel.app",
+  "https://YOUR-EXACT-VERCEL-DOMAIN.vercel.app",
 ];
 
 app.use(
