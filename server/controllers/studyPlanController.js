@@ -2,13 +2,6 @@ const User = require("../models/User");
 const DSAProgress = require("../models/DSAProgress");
 const StudyPlan = require("../models/StudyPlan");
 
-const OLLAMA_URL =
-  process.env.OLLAMA_URL ||
-  "http://127.0.0.1:11434";
-
-const OLLAMA_MODEL =
-  process.env.OLLAMA_MODEL ||
-  "qwen2.5:1.5b";
 
 /* =========================================================
    HELPERS
@@ -89,48 +82,52 @@ const normalizeWeek = (week, index) => {
   };
 };
 
-/* =========================================================
-   OLLAMA
-========================================================= */
+const GEMINI_MODEL =
+  process.env.GEMINI_MODEL || "gemini-3.8-flash";
 
-const askOllama = async (prompt) => {
-  const response = await fetch(
-    `${OLLAMA_URL}/api/generate`,
-    {
-      method: "POST",
+const askGemini = async (prompt) => {
+  const apiKey = process.env.GEMINI_API_KEY;
 
-      headers: {
-        "Content-Type": "application/json",
-      },
-
-      body: JSON.stringify({
-        model: OLLAMA_MODEL,
-        prompt,
-
-        stream: false,
-
-        format: "json",
-
-        options: {
-          temperature: 0.3,
-        },
-      }),
-    }
-  );
-
-  if (!response.ok) {
-    const errorText =
-      await response.text();
-
-    throw new Error(
-      `Ollama error: ${errorText}`
-    );
+  if (!apiKey) {
+    throw new Error("GEMINI_API_KEY is missing in server environment.");
   }
 
-  const data =
-    await response.json();
+  const url =
+    `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`;
 
-  return data.response || "";
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "x-goog-api-key": apiKey,
+    },
+    body: JSON.stringify({
+      contents: [{ role: "user", parts: [{ text: prompt }] }],
+      generationConfig: {
+        temperature: 0.2,
+        responseMimeType: "application/json",
+        maxOutputTokens: 4096,
+      },
+    }),
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    const message = data.error?.message || response.statusText;
+    throw new Error(`Gemini API error (${response.status}): ${message}`);
+  }
+
+  const result = (data.candidates?.[0]?.content?.parts || [])
+    .map((part) => part.text || "")
+    .join("")
+    .trim();
+
+  if (!result) {
+    throw new Error("Gemini returned an empty response.");
+  }
+
+  return result;
 };
 
 /* =========================================================
@@ -664,7 +661,7 @@ Rules:
 
     try {
       const aiResponse =
-        await askOllama(prompt);
+        await askGemini(prompt);
 
       aiPlan =
         parseAIJson(aiResponse);

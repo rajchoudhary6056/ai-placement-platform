@@ -2,44 +2,53 @@ const SkillGapAnalysis = require("../models/SkillGapAnalysis");
 const User = require("../models/User");
 const ResumeAnalysis = require("../models/ResumeAnalysis");
 
-const OLLAMA_URL =
-  process.env.OLLAMA_URL || "http://127.0.0.1:11434";
 
-const OLLAMA_MODEL =
-  process.env.OLLAMA_MODEL || "qwen2.5:1.5b";
+const GEMINI_MODEL =
+  process.env.GEMINI_MODEL || "gemini-3.8-flash";
 
-/* =========================================================
-   OLLAMA
-========================================================= */
+const askGemini = async (prompt) => {
+  const apiKey = process.env.GEMINI_API_KEY;
 
-const askOllama = async (prompt) => {
-  const response = await fetch(`${OLLAMA_URL}/api/generate`, {
+  if (!apiKey) {
+    throw new Error("GEMINI_API_KEY is missing in server environment.");
+  }
+
+  const url =
+    `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`;
+
+  const response = await fetch(url, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      "x-goog-api-key": apiKey,
     },
     body: JSON.stringify({
-      model: OLLAMA_MODEL,
-      prompt,
-      stream: false,
-      format: "json",
-      options: {
+      contents: [{ role: "user", parts: [{ text: prompt }] }],
+      generationConfig: {
         temperature: 0.2,
+        responseMimeType: "application/json",
+        maxOutputTokens: 4096,
       },
     }),
   });
 
-  if (!response.ok) {
-    const errorText = await response.text();
-
-    throw new Error(
-      `Ollama error: ${response.status} ${errorText}`
-    );
-  }
-
   const data = await response.json();
 
-  return data.response || "";
+  if (!response.ok) {
+    const message = data.error?.message || response.statusText;
+    throw new Error(`Gemini API error (${response.status}): ${message}`);
+  }
+
+  const result = (data.candidates?.[0]?.content?.parts || [])
+    .map((part) => part.text || "")
+    .join("")
+    .trim();
+
+  if (!result) {
+    throw new Error("Gemini returned an empty response.");
+  }
+
+  return result;
 };
 
 /* =========================================================
@@ -222,7 +231,7 @@ RULES:
 12. Keep explanations concise.
 `;
 
-    const aiResponse = await askOllama(prompt);
+    const aiResponse = await askGemini(prompt);
 
     const parsed = parseAIJson(aiResponse);
 
