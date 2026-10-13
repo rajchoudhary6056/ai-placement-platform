@@ -5,7 +5,7 @@ const ResumeAnalysis = require("../models/ResumeAnalysis");
 const User = require("../models/User");
 
 const GEMINI_MODEL =
-  process.env.GEMINI_MODEL || "gemini-2.5-flash";
+  process.env.GEMINI_MODEL || "gemini-3.8-flash";
 
 // --------------------------------------------------
 // PDF TEXT EXTRACTION
